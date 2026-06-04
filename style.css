@@ -1,0 +1,406 @@
+@import url('https://cdn.jsdelivr.net/gh/dreampulse/computer-modern-web-font@master/fonts.css');
+
+:root {
+  --text: #1a1a1a;
+  --text-muted: #555;
+  --text-light: #888;
+  --bg: #fffff8;
+  --bg-alt: #f5f5f0;
+  --border: #d8d8cc;
+  --link: #2a4a8a;
+  --link-hover: #1a3060;
+  --accent: #2a4a8a;
+  --max-width: 860px;
+  --sidebar: 220px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  font-family: 'Computer Modern Serif', 'Latin Modern Roman', Georgia, serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  min-height: 100vh;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); text-decoration: underline; }
+
+/* ── Layout ── */
+.site-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--sidebar);
+  min-height: 100vh;
+  background: var(--bg-alt);
+  border-right: 1px solid var(--border);
+  padding: 2.5rem 1.25rem;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sidebar-name {
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-role {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: 'Computer Modern Typewriter', 'Courier New', monospace;
+  line-height: 1.4;
+  margin-bottom: 1.75rem;
+}
+
+nav { display: flex; flex-direction: column; gap: 0; }
+
+nav a {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  padding: 0.35rem 0;
+  border-left: 2px solid transparent;
+  padding-left: 0.75rem;
+  transition: color 0.15s, border-color 0.15s;
+  text-decoration: none;
+}
+
+nav a:hover, nav a.active {
+  color: var(--text);
+  border-left-color: var(--accent);
+}
+
+.sidebar-links {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-top: 2rem;
+}
+
+.sidebar-links a {
+  font-size: 0.75rem;
+  font-family: 'Computer Modern Typewriter', monospace;
+  color: var(--text-muted);
+}
+
+.main-content {
+  margin-left: var(--sidebar);
+  flex: 1;
+  max-width: calc(var(--max-width) + 4rem);
+  padding: 3rem 3rem 5rem;
+}
+
+/* ── Typography ── */
+h1 {
+  font-size: 1.9rem;
+  font-weight: normal;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+h2 {
+  font-size: 1.15rem;
+  font-weight: normal;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 2.5rem 0 0.75rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: italic;
+  color: var(--text);
+  margin: 1.25rem 0 0.3rem;
+}
+
+p { margin-bottom: 0.75rem; }
+
+/* ── Hero ── */
+.hero {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+.hero-meta {
+  font-size: 0.82rem;
+  font-family: 'Computer Modern Typewriter', monospace;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.hero-links a {
+  font-size: 0.78rem;
+  font-family: 'Computer Modern Typewriter', monospace;
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.65rem;
+  border-radius: 2px;
+  color: var(--link);
+  transition: background 0.15s;
+}
+
+.hero-links a:hover {
+  background: var(--bg-alt);
+  text-decoration: none;
+}
+
+/* ── Stats row ── */
+.stats-row {
+  display: flex;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.stat-item { text-align: center; }
+.stat-num {
+  font-size: 1.6rem;
+  font-weight: normal;
+  color: var(--text);
+  display: block;
+  line-height: 1;
+}
+.stat-lbl {
+  font-size: 0.7rem;
+  font-family: 'Computer Modern Typewriter', monospace;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Lists ── */
+ul.clean {
+  list-style: none;
+  padding: 0;
+}
+
+ul.clean li {
+  padding: 0.2rem 0;
+  padding-left: 1.2rem;
+  position: relative;
+  font-size: 0.93rem;
+}
+
+ul.clean li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--text-light);
+}
+
+/* ── Publication entries ── */
+.pub-list { list-style: none; padding: 0; }
+
+.pub-entry {
+  display: flex;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--bg-alt);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.pub-num {
+  min-width: 1.8rem;
+  color: var(--text-light);
+  font-family: 'Computer Modern Typewriter', monospace;
+  font-size: 0.8rem;
+  padding-top: 0.05rem;
+}
+
+.pub-text .pub-title {
+  font-style: italic;
+  color: var(--text);
+}
+
+.pub-text .pub-venue {
+  color: var(--text-muted);
+  font-size: 0.83rem;
+}
+
+.pub-text .pub-authors {
+  color: var(--text-light);
+  font-size: 0.8rem;
+}
+
+.pub-text .me { font-weight: bold; color: var(--text); font-style: normal; }
+
+.pub-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-family: 'Computer Modern Typewriter', monospace;
+  border: 1px solid var(--border);
+  padding: 0 0.4rem;
+  border-radius: 2px;
+  color: var(--text-muted);
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+.pub-badge.accepted { border-color: #4a7a4a; color: #4a7a4a; }
+.pub-badge.pending { border-color: #8a6a2a; color: #8a6a2a; }
+
+/* ── Experience entries ── */
+.exp-entry {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--bg-alt);
+}
+
+.exp-role { font-size: 0.93rem; color: var(--text); }
+.exp-org { font-size: 0.85rem; color: var(--text-muted); font-style: italic; }
+.exp-date {
+  font-size: 0.78rem;
+  font-family: 'Computer Modern Typewriter', monospace;
+  color: var(--text-light);
+  text-align: right;
+  white-space: nowrap;
+  padding-top: 0.1rem;
+}
+
+.exp-details {
+  grid-column: 1 / -1;
+  margin-top: 0.4rem;
+}
+
+.exp-details li {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-left: 1.2rem;
+  margin-bottom: 0.15rem;
+}
+
+/* ── Patent entries ── */
+.patent-entry {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--bg-alt);
+  font-size: 0.88rem;
+}
+
+.patent-num {
+  font-family: 'Computer Modern Typewriter', monospace;
+  font-size: 0.78rem;
+  color: var(--text-light);
+}
+
+/* ── Award entries ── */
+.award-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.35rem 0;
+  font-size: 0.88rem;
+  border-bottom: 1px solid var(--bg-alt);
+}
+
+.award-year {
+  font-family: 'Computer Modern Typewriter', monospace;
+  font-size: 0.78rem;
+  color: var(--text-light);
+  white-space: nowrap;
+  margin-left: 1rem;
+}
+
+/* ── Skills grid ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.4rem 1.5rem;
+  font-size: 0.88rem;
+  margin-top: 0.5rem;
+}
+
+.skills-grid dt {
+  font-family: 'Computer Modern Typewriter', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding-top: 0.1rem;
+}
+
+.skills-grid dd { color: var(--text); }
+
+/* ── Section sub-heading ── */
+.sub-section {
+  font-size: 0.78rem;
+  font-family: 'Computer Modern Typewriter', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  margin: 1.5rem 0 0.5rem;
+}
+
+/* ── Tag pills ── */
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-family: 'Computer Modern Typewriter', monospace;
+  border: 1px solid var(--border);
+  padding: 0.1rem 0.5rem;
+  border-radius: 2px;
+  color: var(--text-muted);
+  margin: 0.15rem 0.15rem 0.15rem 0;
+}
+
+/* ── Footer ── */
+footer {
+  margin-top: 4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  font-family: 'Computer Modern Typewriter', monospace;
+  color: var(--text-light);
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    padding: 1.5rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .site-wrapper { flex-direction: column; }
+  .main-content { margin-left: 0; padding: 1.5rem; }
+  nav { flex-direction: row; flex-wrap: wrap; gap: 0.25rem 1rem; }
+  nav a { border-left: none; border-bottom: 2px solid transparent; padding-left: 0; padding-bottom: 0.2rem; }
+  nav a.active { border-bottom-color: var(--accent); }
+  .sidebar-links { flex-direction: row; flex-wrap: wrap; padding-top: 1rem; }
+  .stats-row { gap: 1.25rem; }
+}
